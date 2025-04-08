@@ -9,7 +9,7 @@ class Ship(Sprite):
         """Initialize the ship and set its starting position."""
         super().__init__()
         self.screen = ai_game.screen
-        self.settings = ai_game.settings
+        self.settings = ai_game.screen.get_rect()
 
         self.screen_rect = ai_game.screen.get_rect()
         # Load the ship image and get its rect.
@@ -38,8 +38,8 @@ class Ship(Sprite):
         
     def blitme(self):
         """Draw the ship at its current location."""
-        self.screen.flip(self.image, self.rect)
-        
+        #self.screen.flip(self.image, self.rect)
+        self.screen.blit(self.image, self.rect)
     def center_ship(self):
         """Center the ship on the screen."""
         self.rect.midbottom = self.screen_rect.midbottom
